@@ -90,7 +90,7 @@ const contains = function(obj, target) {
 // Return true if all the elements / object values are accepted by the callback.
 const every = function(obj, callback=identity) {
   return reduce(obj, (allPassed, item) => {
-    return allPassed && callback(allPassed);
+    return allPassed && callback(allPassed, item);
   }, true);
 };
 
@@ -106,7 +106,7 @@ const filter = function(obj, callback=identity) {
   let result = [];
   each(obj, item => {
     if(callback(item)) {
-      results.push(item);
+      result.push(item);
     }
   });
   return result;

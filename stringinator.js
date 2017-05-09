@@ -17,12 +17,14 @@ const hasChar = function(str, target) {
 };
 
 const isOnlyDigits = function(str) {
-  return _.every(str.split(''), 
-                 item => !Number.isNaN(parseInt(item)));
+  const digits = str.split('');
+  return _.every(digits, 
+                 num => !Number.isNaN(parseInt(num)));
 };
 
 const filterToOnlyDigits = function(str) {
-
+  const digits = str.split('');
+  return (_.filter(digits, num => !Number.isNaN(parseInt(num)))).join('');
 };
 
 const truncateString = function(val, maxLength) {
@@ -31,12 +33,11 @@ const truncateString = function(val, maxLength) {
 };
 
 const truncateLongItems = function(obj, maxLength) {
-  // hint: use truncateString above
-  // Your code goes here
+  return _.map(obj, item => truncateString(item, maxLength));
 };
 
 const countChars = function(str) {
-  // Your code goes here
+
 };
 
 const dedup = function(str) {

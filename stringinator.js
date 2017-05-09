@@ -37,7 +37,12 @@ const truncateLongItems = function(obj, maxLength) {
 };
 
 const countChars = function(str) {
-
+  let result = {};
+  let count = 0;
+  _.each(String(str), char => {
+    result[char] = result[char] === undefined ? 1 : result[char] + 1;
+  });
+  return result;
 };
 
 const dedup = function(str) {
